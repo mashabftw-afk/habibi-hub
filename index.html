@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#10101c">
+<title>Habibi Hub | Apps & Games</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#10101c;color:#fff;font-family:Arial,sans-serif}
+header{padding:24px 18px;background:linear-gradient(135deg,#21164a,#111827);text-align:center;border-bottom:1px solid #393054}
+.logo{font-size:29px;font-weight:900;color:#b9a0ff}
+header p{color:#c7c3d8}
+main{max-width:900px;margin:auto;padding:20px}
+.search{width:100%;padding:14px;border-radius:12px;border:1px solid #44405c;background:#1c1b2b;color:white;font-size:16px}
+h2{margin-top:28px}
+.card{background:#1b1a2b;border:1px solid #38334f;border-radius:16px;padding:18px;margin:14px 0}
+.card h3{margin:0 0 8px}
+.card p{color:#c5c2d6;line-height:1.5}
+.tag{font-size:12px;color:#c3aaff}
+.btn{display:inline-block;background:#8055f7;color:white;text-decoration:none;padding:11px 17px;border-radius:9px;font-weight:bold;border:0}
+.empty{display:none;color:#ccc}
+footer{text-align:center;padding:28px;color:#aaa;font-size:13px}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">🎮 HABIBI HUB</div>
+  <p>Your apps. Your games. Your hub.</p>
+</header>
+<main>
+  <input class="search" id="search" placeholder="Search apps and games..." aria-label="Search apps and games">
+  <h2>🚀 My Apps & Games</h2>
+  <div id="games">
+    <article class="card">
+      <span class="tag">PARTY GAME · ANDROID</span>
+      <h3>Word Imposter</h3>
+      <p>A fun word and guessing game by Habibi27. Play with friends and discover the imposter!</p>
+      <p>📱 Android · APK download</p>
+      <a class="btn" href="#download-info">Download</a>
+    </article>
+    <article class="card">
+      <span class="tag">COMING SOON</span>
+      <h3>More apps and games</h3>
+      <p>New projects by Habibi27 will appear here.</p>
+    </article>
+  </div>
+  <p class="empty" id="empty">No apps or games found.</p>
+  <section id="download-info" class="card">
+    <h3>Word Imposter download</h3>
+    <p>The APK download will be added after the game file is uploaded.</p>
+  </section>
+</main>
+<footer>© 2026 Habibi Hub · Made by Habibi27</footer>
+<script>
+const search=document.getElementById('search');
+search.addEventListener('input',()=>{
+  const q=search.value.toLowerCase();
+  let count=0;
+  document.querySelectorAll('#games .card').forEach(card=>{
+    const show=card.innerText.toLowerCase().includes(q);
+    card.style.display=show?'block':'none';
+    if(show)count++;
+  });
+  document.getElementById('empty').style.display=count?'none':'block';
+});
+</script>
+</body>
+</html>
